@@ -178,7 +178,8 @@ model = WideResNet(args.layers, num_classes,
 model = model.cuda()
 
 # Load model weights 
-filepath = "drive/MyDrive/runs/WideResNet-28-10/model_best.pth.tar"
+# filepath = "drive/MyDrive/runs/WideResNet-28-10/model_best.pth.tar" # For Colab
+filepath = "runs/WideResNet-28-10/model_best.pth.tar"
 if os.path.isfile(filepath):
     print("=> loading best model weights '{}'".format(filepath))
     best_model = torch.load(filepath)
