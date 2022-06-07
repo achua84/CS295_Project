@@ -9,8 +9,8 @@ near_OOD_encodings = None
 far_OOD_encodings = None
 
 
-if os.path.exists('drive/MyDrive/all_encodings.pkl'):
-    with open('drive/MyDrive/all_encodings.pkl', 'rb') as f:
+if os.path.exists('all_encodings.pkl'):
+    with open('all_encodings.pkl', 'rb') as f:
         class_descriptors, ID_encodings, \
         near_OOD_encodings, far_OOD_encodings = pickle.load(f)
 
@@ -39,8 +39,8 @@ for key, vals in far_OOD_encodings.items():
         far_ID_merge.append((val, 1))
         far_list.append((val, 1))
 
-# random.shuffle(near_ID_merge)
-# random.shuffle(far_ID_merge)
+random.shuffle(near_ID_merge)
+random.shuffle(far_ID_merge)
 print(len(near_ID_merge))
 print(len(far_ID_merge))
 
