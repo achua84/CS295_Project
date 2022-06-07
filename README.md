@@ -10,8 +10,6 @@ Currently, the hypervector is of length 10,000 and there are 10 classes (cifar10
 
 ```all_encodings``` will be a list of tuples: ```(image_encoding, label)```, in which the image_encoding is length 10,000 and the label is either a 0 (ID) or 1 (OOD). 
 
-I currently only used 15 layers to extract the feature maps, for computational reasons… In total, there were 71 (I couldn’t get the 76 that the paper got lol). So feel free to increase that number if the accuracy isn’t great. 
-
 ### If you want to change the HD input…
 
 Change the settings in ```helper.py```. The comments should say which variables you could change. 
@@ -19,13 +17,13 @@ Change the settings in ```helper.py```. The comments should say which variables 
 After, run “pretrained_model.py” with 
 ```!python pretrained_model.py --layers 28 --widen-factor 10```
 
-And make sure the ```runs/WideResNet-28-10/model_best.pth.tar``` is in the same directory as ```pretrained_model.py```. You’ll have to change line 182 (the filepath variable) in ```pretrained_model.py``` so it points to the tar file. 
+And make sure the ```runs/WideResNet-28-10/model_best.pth.tar``` is in the same directory as ```pretrained_model.py```. You’ll have to change ~line 182 (the filepath variable) in ```pretrained_model.py``` so it points to the tar file. 
 
 ### If you want to retrain the WideResNet…
 
-Follow the GitHub https://github.com/xternalz/WideResNet-pytorch (I’m not too familiar with PyTorch, since I’m more used to Tensorflow, but this was the best GitHub I could find lol) 
+Follow the GitHub https://github.com/xternalz/WideResNet-pytorch 
 
-If you want to continue training our current model, you can use the last checkpoint I used, in which you can add ```--start-epoch 176 --resume “runs/WideResNet-28-10/checkpoint.pth.tar”``` to the command, since that’s when I stopped training. Currently, the max the code goes is 200 epochs, but you can change that with adding ```--epochs 300```, or something similar. 
+If you want to continue training our current model, you can use the last checkpoint that was used, in which you can add ```--start-epoch 176 --resume “runs/WideResNet-28-10/checkpoint.pth.tar”``` to the command, since that’s when training stopped. Currently, the max the code goes is 200 epochs, but you can change that with adding ```--epochs 300```, or something similar. 
 
 ### If you want to see which layers we use for feature maps…
 
